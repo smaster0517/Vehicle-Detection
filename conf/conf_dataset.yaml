@@ -1,0 +1,8 @@
+cls_desc: https://storage.googleapis.com/openimages/v5/class-descriptions-boxable.csv
+test_bbox: https://storage.googleapis.com/openimages/v5/test-annotations-bbox.csv
+validation_bbox: https://storage.googleapis.com/openimages/v5/validation-annotations-bbox.csv
+train_bbox: https://storage.googleapis.com/openimages/v6/oidv6-train-annotations-bbox.csv
+test_ann: https://storage.googleapis.com/openimages/v5/test-annotations-human-imagelabels-boxable.csv
+validation_ann: https://storage.googleapis.com/openimages/v5/validation-annotations-human-imagelabels-boxable.csv
+train_ann: https://storage.googleapis.com/openimages/v5/train-annotations-human-imagelabels-boxable.csv
+downloader_ulr: https://raw.githubusercontent.com/openimages/dataset/master/downloader.py
