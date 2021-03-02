@@ -4,6 +4,7 @@ import torch
 from PIL import Image
 from torchvision import transforms
 import cv2
+import numpy as np
 
 
 def visualize(**images):
