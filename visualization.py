@@ -36,10 +36,11 @@ def visualize_prediction(file, model, device='cuda', verbose=True, thresh=0.0, n
 def visualize_from_dataset(img):
     img_value, img_boxes = img[0], img[1]["boxes"]
     img_value = img_value.permute(1, 2, 0).numpy() * 255
+    print(type(img_value))
     for i in range(len(img_boxes)):
         x_min, y_min, x_max, y_max = img_boxes[i]
         image = cv2.rectangle(
-            img_value.astype(dtype=np.uint8),
+            img_value.astype(dtype=np.float32),
             (x_min, y_min),
             (x_max, y_max),
             (0, 255, 0),
