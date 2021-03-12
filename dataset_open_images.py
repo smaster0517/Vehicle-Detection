@@ -82,7 +82,6 @@ def get_dataset(
         names=["LabelName", "ClassName"])
 
     img_id = pd.merge(img_id, class_names_df, on="LabelName", how="left")
-    img_id.drop(["LabelName", "Source"], axis=1, inplace=True)
 
     saving_path = os.path.join(root, part + "_images_list.txt")
     downloader_path = os.path.join(".", root, "downloader.py")
@@ -93,11 +92,12 @@ def get_dataset(
     bboxs = source_dict[part + "_bbox"].split('/')[-1]
     img_bboxs_df = pd.read_csv(
         os.path.join(root, bboxs),
-        usecols=["ImageID", "XMin", "XMax", "YMin", "YMax"])
-    img_id = pd.merge(img_id, img_bboxs_df, on="ImageID", how="left")
+        usecols=["ImageID", "LabelName", "XMin", "XMax", "YMin", "YMax"])
+    img_id = pd.merge(img_id, img_bboxs_df, on=["ImageID", "LabelName"], how="left")
     if remove_empty_imgs:
         img_id = img_id[~((img_id["XMin"].isnull()) | (img_id["XMax"].isnull())
             | (img_id["YMin"].isnull()) | (img_id["YMax"].isnull()))]
+    img_id.drop(["LabelName", "Source"], axis=1, inplace=True)
 
     img_id["bbox"] = img_id[img_id.columns[4:]].apply(
         lambda x: [i for i in x],
