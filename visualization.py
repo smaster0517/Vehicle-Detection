@@ -61,7 +61,7 @@ def visualize_prediction_plate(
 ) -> any:
     filename_to_bbox_dict = dataset.get_data_dict()
     file_name = list(filename_to_bbox_dict.keys())[idx]
-    file_path = os.path.join('.', 'openimages', dataset.part, file_name + '.jpg')
+    file_path = os.path.join('.', 'data', dataset.part, file_name + '.jpg')
 
     img = Image.open(file_path)
     img_tensor = val_transform(img)
