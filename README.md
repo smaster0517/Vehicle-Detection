@@ -1,6 +1,6 @@
 # Detection-vehicle-registration-plate
 
-Object detection pipeline for vehicle registration plate detection from OpenImages.
+Object detection pipeline for vehicle registration plate from OpenImages.
 
 Using:\
 Pytorch \
